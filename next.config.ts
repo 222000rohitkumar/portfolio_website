@@ -1,11 +1,10 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   eslint: {
-    // ✅ Prevent build from failing due to ESLint warnings
+    // ✅ Allow build to succeed even if there are linting errors or warnings
     ignoreDuringBuilds: true,
   },
-};
+}
 
-export default nextConfig;
-
+export default nextConfig
