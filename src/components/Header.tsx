@@ -63,6 +63,7 @@ const Header = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00ffff] transition-all duration-300 group-hover:w-full"></span>
               </motion.button>
             ))}
+<<<<<<< HEAD
             <motion.a
               href="/admin"
               whileHover={{ scale: 1.1 }}
@@ -72,6 +73,8 @@ const Header = () => {
               Admin
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00ffff] transition-all duration-300 group-hover:w-full"></span>
             </motion.a>
+=======
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
           </div>
 
           {/* Mobile Menu Button */}

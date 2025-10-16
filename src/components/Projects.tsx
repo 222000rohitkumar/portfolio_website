@@ -31,6 +31,7 @@ const Projects = () => {
   const getIcon = (category: string) => {
     switch (category.toLowerCase()) {
       case 'machine learning':
+<<<<<<< HEAD
         return <BarChart3 className="w-5 h-5" />;
       case 'data science':
         return <Brain className="w-5 h-5" />;
@@ -40,6 +41,17 @@ const Projects = () => {
         return <Database className="w-5 h-5" />;
       default:
         return <Brain className="w-5 h-5" />;
+=======
+        return <BarChart3 className="w-6 h-6" />;
+      case 'data science':
+        return <Brain className="w-6 h-6" />;
+      case 'deep learning':
+        return <Zap className="w-6 h-6" />;
+      case 'web development':
+        return <Database className="w-6 h-6" />;
+      default:
+        return <Brain className="w-6 h-6" />;
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
     }
   };
 
@@ -97,7 +109,11 @@ const Projects = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+<<<<<<< HEAD
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-7xl mx-auto"
+=======
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto"
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
           >
             {projects.map((project, index) => (
               <motion.div
@@ -105,6 +121,7 @@ const Projects = () => {
                 variants={cardVariants}
                 className="group relative"
               >
+<<<<<<< HEAD
                 <div 
                   className="hud-border bg-[#1a1a1a]/50 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-[#1a1a1a]/70 transition-all duration-300 neon-card-glow cursor-pointer"
                   onClick={() => {
@@ -119,6 +136,11 @@ const Projects = () => {
                 >
                   {/* Project Image */}
                   <div className="relative h-28 overflow-hidden">
+=======
+                <div className="hud-border bg-[#1a1a1a]/50 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-[#1a1a1a]/70 transition-all duration-300 neon-card-glow">
+                  {/* Project Image */}
+                  <div className="relative h-40 overflow-hidden">
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
                     <img 
                       src={project.image} 
                       alt={project.title}
@@ -127,9 +149,13 @@ const Projects = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-[#00ffff]/20 to-[#0a0a0a]/60"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-[#00ffff] group-hover:scale-110 transition-transform duration-300 neon-icon-glow">
+<<<<<<< HEAD
                         <div className="w-5 h-5">
                           {getIcon(project.category)}
                         </div>
+=======
+                        {getIcon(project.category)}
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
                       </div>
                     </div>
                     
@@ -144,7 +170,10 @@ const Projects = () => {
                           whileTap={{ scale: 0.95 }}
                           className="p-3 bg-[#0a0a0a]/90 rounded-full text-[#00ffff] hover:bg-[#00ffff] hover:text-[#0a0a0a] transition-all duration-300 neon-button-glow border border-[#00ffff]/30"
                           title="View on GitHub"
+<<<<<<< HEAD
                           onClick={(e) => e.stopPropagation()}
+=======
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
                         >
                           <Github className="w-5 h-5" />
                         </motion.a>
@@ -157,7 +186,10 @@ const Projects = () => {
                             whileTap={{ scale: 0.95 }}
                             className="p-3 bg-[#0a0a0a]/90 rounded-full text-[#00ffff] hover:bg-[#00ffff] hover:text-[#0a0a0a] transition-all duration-300 neon-button-glow border border-[#00ffff]/30"
                             title="View Live Demo"
+<<<<<<< HEAD
                             onClick={(e) => e.stopPropagation()}
+=======
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
                           >
                             <ExternalLink className="w-5 h-5" />
                           </motion.a>
@@ -167,6 +199,7 @@ const Projects = () => {
                   </div>
 
                   {/* Project Content */}
+<<<<<<< HEAD
                   <div className="p-3">
                     <div className="flex items-center justify-between mb-1">
                       <h3 className="text-base font-semibold text-[#00ffff] group-hover:text-white transition-colors duration-300 neon-text-glow">
@@ -178,15 +211,31 @@ const Projects = () => {
                     </div>
                     
                     <p className="text-[#a0a0a0] mb-2 leading-relaxed text-sm line-clamp-2">
+=======
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-[#00ffff] mb-2 group-hover:text-white transition-colors duration-300 neon-text-glow">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-[#a0a0a0] mb-3 leading-relaxed text-sm line-clamp-3">
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
                       {project.description}
                     </p>
 
                     {/* Technology Tags */}
+<<<<<<< HEAD
                     <div className="flex flex-wrap gap-1">
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
                           className="px-2 py-0.5 bg-[#00ffff]/10 border border-[#00ffff]/30 rounded-full text-xs text-[#00ffff] hover:bg-[#00ffff]/20 transition-colors duration-300 neon-tag-glow"
+=======
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-[#00ffff]/10 border border-[#00ffff]/30 rounded-full text-sm text-[#00ffff] hover:bg-[#00ffff]/20 transition-colors duration-300 neon-tag-glow"
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
                         >
                           {tech}
                         </span>

@@ -4,7 +4,10 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Plus, Edit, Trash2, Save, X } from 'lucide-react';
 import { fetchProjects, createProject, updateProject, deleteProject, Project } from '@/lib/projects';
+<<<<<<< HEAD
 import PasswordModal from './PasswordModal';
+=======
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
 
 const ProjectAdmin = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -17,6 +20,7 @@ const ProjectAdmin = () => {
     technologies: '',
     githubLink: '',
     liveLink: '',
+<<<<<<< HEAD
     category: '',
     image: ''
   });
@@ -24,6 +28,10 @@ const ProjectAdmin = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [projectToDelete, setProjectToDelete] = useState<Project | null>(null);
+=======
+    category: ''
+  });
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
 
   useEffect(() => {
     loadProjects();
@@ -42,6 +50,7 @@ const ProjectAdmin = () => {
     }
   };
 
+<<<<<<< HEAD
   const handleFileUpload = async (file: File) => {
     setUploading(true);
     try {
@@ -89,6 +98,15 @@ const ProjectAdmin = () => {
       ...formData,
       technologies: formData.technologies.split(',').map(tech => tech.trim()).filter(tech => tech),
       image: imageUrl || '/api/placeholder/400/300'
+=======
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const projectData = {
+      ...formData,
+      technologies: formData.technologies.split(',').map(tech => tech.trim()).filter(tech => tech),
+      image: '/api/placeholder/400/300'
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
     };
 
     try {
@@ -113,6 +131,7 @@ const ProjectAdmin = () => {
       technologies: project.technologies.join(', '),
       githubLink: project.githubLink,
       liveLink: project.liveLink,
+<<<<<<< HEAD
       category: project.category,
       image: project.image
     });
@@ -142,6 +161,24 @@ const ProjectAdmin = () => {
     setShowPasswordModal(false);
   };
 
+=======
+      category: project.category
+    });
+    setShowForm(true);
+  };
+
+  const handleDelete = async (id: number) => {
+    if (confirm('Are you sure you want to delete this project?')) {
+      try {
+        await deleteProject(id);
+        await loadProjects();
+      } catch (error) {
+        console.error('Failed to delete project:', error);
+      }
+    }
+  };
+
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
   const resetForm = () => {
     setFormData({
       title: '',
@@ -149,10 +186,15 @@ const ProjectAdmin = () => {
       technologies: '',
       githubLink: '',
       liveLink: '',
+<<<<<<< HEAD
       category: '',
       image: ''
     });
     setSelectedFile(null);
+=======
+      category: ''
+    });
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
     setEditingProject(null);
     setShowForm(false);
   };
@@ -252,6 +294,7 @@ const ProjectAdmin = () => {
               />
             </div>
 
+<<<<<<< HEAD
             <div>
               <label className="block text-[#a0a0a0] mb-2">Project Image</label>
               <div className="space-y-4">
@@ -314,6 +357,8 @@ const ProjectAdmin = () => {
               </div>
             </div>
 
+=======
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[#a0a0a0] mb-2">GitHub Link</label>
@@ -358,18 +403,31 @@ const ProjectAdmin = () => {
       )}
 
       {/* Projects List */}
+<<<<<<< HEAD
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+=======
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
         {projects.map((project) => (
           <motion.div
             key={project.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+<<<<<<< HEAD
             className="hud-border bg-[#1a1a1a]/50 backdrop-blur-sm rounded-lg p-4"
           >
             <h3 className="text-base font-semibold text-[#00ffff] mb-1">{project.title}</h3>
             <p className="text-[#a0a0a0] text-sm mb-2 line-clamp-2">{project.description}</p>
             
             <div className="flex flex-wrap gap-1 mb-3">
+=======
+            className="hud-border bg-[#1a1a1a]/50 backdrop-blur-sm rounded-lg p-6"
+          >
+            <h3 className="text-lg font-semibold text-[#00ffff] mb-2">{project.title}</h3>
+            <p className="text-[#a0a0a0] text-sm mb-4 line-clamp-3">{project.description}</p>
+            
+            <div className="flex flex-wrap gap-1 mb-4">
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
               {project.technologies.slice(0, 3).map((tech) => (
                 <span
                   key={tech}
@@ -398,9 +456,14 @@ const ProjectAdmin = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+<<<<<<< HEAD
                 onClick={() => handleDelete(project)}
                 className="px-3 py-2 bg-red-500/10 border border-red-500/30 rounded text-red-400 hover:bg-red-500/20 transition-colors"
                 title="Delete project (requires password)"
+=======
+                onClick={() => handleDelete(project.id)}
+                className="px-3 py-2 bg-red-500/10 border border-red-500/30 rounded text-red-400 hover:bg-red-500/20 transition-colors"
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
               >
                 <Trash2 className="w-4 h-4" />
               </motion.button>
@@ -408,6 +471,7 @@ const ProjectAdmin = () => {
           </motion.div>
         ))}
       </div>
+<<<<<<< HEAD
 
       {/* Password Modal */}
       <PasswordModal
@@ -417,6 +481,8 @@ const ProjectAdmin = () => {
         title="Delete Project"
         message={`Are you sure you want to delete "${projectToDelete?.title}"? This action cannot be undone.`}
       />
+=======
+>>>>>>> 9beead1279eacc1a70aa6fc2ab5f9c5a83f89bc5
     </div>
   );
 };
